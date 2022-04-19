@@ -1,0 +1,15 @@
+RewriteEngine on
+
+# 檢測網址狀態是否為檔案或目錄
+# RewriteCond %{REQUEST_URI} !-f
+# RewriteCond %{REQUEST_URI} !-d
+
+# 檢測網址的是否為檔案或目錄,
+# 如果不是檔案或目錄的話,則執行後面的重寫rule ,如
+# 果是檔案或目錄的話,則不映射
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 設定條件及映射路徑到index.php
+# RewriteRule ^(.*)$ index.php?path=$1 [NC,L,QSA]
+RewriteRule ^(.*)$ index.php [NC,L,QSA]
